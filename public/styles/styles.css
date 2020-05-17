@@ -1,0 +1,131 @@
+body {
+  font-size: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+.cards {
+  width: 25em;
+  height: 13em;
+  position: relative;
+  margin: 0;
+}
+
+.cards .card {
+  position: absolute;
+  width: 18.5em;
+  height: 11.5em;
+  border-radius: 0.8em;
+}
+
+.cards .card.front {
+  border: 1px solid #bbb;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 100;
+}
+
+.cards .card.front .bank-logo {
+  position: absolute;
+  top: -0.3em;
+  left: 0;
+  padding: 1.3em;
+  width: 100%;
+  height: 5em;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: 0 0;
+     object-position: 0 0;
+  display: none;
+}
+
+.cards .card.front .brand-logo {
+  position: absolute;
+  bottom: 1.3em;
+  right: 1.3em;
+  text-align: right;
+  height: 1.8em;
+  display: none;
+}
+
+.cards .card.front .fields {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.3em;
+}
+
+.cards .card.front .fields .number {
+  width: 100%;
+  margin-bottom: 0.3em;
+}
+
+.cards .card.front .fields .expired {
+  display: inline-block;
+  width: 3em;
+  margin-right: 0.5em;
+  margin-top: 0.3em;
+}
+
+.cards .card.back {
+  bottom: 0;
+  right: 0;
+  background: #bbb;
+  padding-top: 5.8em;
+  padding-right: 1.3em;
+  padding-left: 13.2em;
+}
+
+.cards .card.back .code {
+  width: 100%;
+}
+
+.cards .card.back:before {
+  content: "";
+  position: absolute;
+  top: 1.3em;
+  background: #444;
+  width: 100%;
+  height: 3em;
+  left: 0;
+}
+
+.field {
+  padding: 0.3em 0.5em;
+  font-family: Courier, monospace;
+  font-size: 1em;
+  text-indent: 0.1em;
+  border: 1px solid #666;
+}
+
+.label {
+  font-size: 0.8em;
+  display: block;
+  margin-top: 0.5em;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <title>Detect bank</title>
+  </head>
+  <body>
+    <div class="cards">
+      <div class="front card">
+        <img class="bank-logo" />
+        <img class="brand-logo" />
+        <div class="fields">
+          <input
+            class="field number"
+            type="text"
+            placeholder="0000 0000 0000 0000"
+          />
+          <label class="label">Valid thru</label>
+          <input class="field expired" type="text" placeholder="MM" />
+          <input class="field expired" type="text" placeholder="YY" />
+        </div>
+      </div>
+      <div class="back card">
+        <input class="field code" type="password" />
+        <label class="label">Safety code</label>
+      </div>
+    </div>
+  </body>
+</html>

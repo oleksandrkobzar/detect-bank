@@ -1,24 +1,19 @@
-const http = require('http')
+const express = require('express')
 const fs = require('fs')
+const app = express()
+const PORT = 5000
 
-const index = fs.readFileSync('index.html')
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function (req, res) {
+  res.sendfile('index.html')
+})
+
+app.listen(PORT, console.log(`Server running on port ${PORT}`))
 
 //createFile('binlist-data.csv', 'ukraine.json')
 
-const server = http.createServer(function (req, res) {
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/plain')
-  res.end(index)
-});
-
-const hostname = '127.0.0.1'
-const port = 3000
-
-server.listen(port, hostname, function () {
-  console.log('Server running at http://' + hostname + ':' + port + '/')
-})
-
-function createFile(inputFile, outFile) {
+function createFile(inputFile, outputFile) {
   const csv = require('csv-parser')
   const results = []
 
@@ -26,17 +21,13 @@ function createFile(inputFile, outFile) {
     .pipe(csv())
     .on('data', (data) => results.push(data))
     .on('end', () => {
-      console.log(results)
-      let data = {}
-      for (i in results) {
-        let result = results[i]
+      let data = results.filter(item => item.country === 'Ukraine');
 
-        if (result.country === 'Ukraine') {
-          data[i] = result
-        }
-      }
+      console.log(data)
+      console.log("length: " + data.length)
+
       var jsonContent = JSON.stringify(data);
-      fs.writeFile(outFile, jsonContent, 'utf8', function (err) {
+      fs.writeFile(outputFile, jsonContent, 'utf8', function (err) {
         if (err) {
           console.log("An error occured while writing JSON Object to File.")
           return console.log(err);
